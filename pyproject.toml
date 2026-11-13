@@ -1,0 +1,53 @@
+[build-system]
+requires = ["setuptools>=77"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "clipinbox"
+version = "0.1.0"
+description = "Capture texto para Markdown com um atalho global, sem abrir o Obsidian."
+readme = "README.md"
+requires-python = ">=3.12"
+license = "MIT"
+authors = [{name = "Luiz Chockt"}]
+dependencies = ["pystray==0.19.5", "Pillow==13.0.0"]
+classifiers = [
+  "Development Status :: 4 - Beta",
+  "Operating System :: Microsoft :: Windows :: Windows 10",
+  "Operating System :: Microsoft :: Windows :: Windows 11",
+  "Programming Language :: Python :: 3.12",
+  "Topic :: Utilities",
+]
+
+[project.optional-dependencies]
+dev = ["pytest==9.2.0", "ruff==0.17.5"]
+build = ["PyInstaller==6.22.3"]
+
+[project.gui-scripts]
+clipinbox = "clipinbox.app:main"
+
+[project.urls]
+Repository = "https://github.com/LuizChockt/clipinbox"
+Issues = "https://github.com/LuizChockt/clipinbox/issues"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.setuptools.package-data]
+clipinbox = ["resources/*.ico", "resources/*.png"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["src"]
+addopts = "-ra"
+markers = [
+  "windows: integração com APIs reais do Windows",
+  "desktop: exige desktop e área de transferência isolados",
+]
+
+[tool.ruff]
+target-version = "py312"
+line-length = 100
+
+[tool.ruff.lint]
+select = ["E", "F", "I", "UP", "B"]
