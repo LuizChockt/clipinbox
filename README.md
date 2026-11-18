@@ -10,12 +10,9 @@ Versão **0.1.0** · Windows 10/11 x64 · MIT · interface em português brasile
 
 ## Download e instalação
 
-Baixa **`ClipInbox-v0.1.0-windows-x64.zip`** na
-[página de releases](https://github.com/LuizChockt/clipinbox/releases).
-O ZIP só é publicado após os testes e o build Windows do workflow passarem.
-Se ainda não houver um ZIP, consulta o estado em
-[Actions](https://github.com/LuizChockt/clipinbox/actions): código e workflow
-disponíveis, por si só, não significam que já existe um executável publicado.
+**[Baixar ClipInbox 0.1.0 para Windows x64 (ZIP)](https://github.com/LuizChockt/clipinbox/releases/download/v0.1.0/ClipInbox-v0.1.0-windows-x64.zip)**
+· [SHA256SUMS.txt](https://github.com/LuizChockt/clipinbox/releases/download/v0.1.0/SHA256SUMS.txt)
+· [Notas da versão](https://github.com/LuizChockt/clipinbox/releases/tag/v0.1.0)
 
 1. Extrai **todo o ZIP** para uma pasta permanente, como `Documentos\Aplicativos`.
 2. Abre a pasta `ClipInbox` e executa **`ClipInbox.exe`**.

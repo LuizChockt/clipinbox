@@ -64,6 +64,22 @@ def test_atomic_replace_failure_keeps_original(tmp_path, monkeypatch):
     assert not list(tmp_path.glob("*.tmp"))
 
 
+def test_config_error_survives_failed_temporary_file_cleanup(tmp_path, monkeypatch):
+    path = tmp_path / "config.json"
+    save_config(path, Config())
+    original = path.read_bytes()
+
+    def deny(*args, **kwargs):
+        raise PermissionError
+
+    with monkeypatch.context() as patch:
+        patch.setattr(config_module.os, "replace", deny)
+        patch.setattr(type(path), "unlink", deny)
+        with pytest.raises(ConfigError, match="Não foi possível salvar"):
+            save_config(path, Config(hotkey="Ctrl+Shift+F9"))
+    assert path.read_bytes() == original
+
+
 def test_appdata_location(tmp_path, monkeypatch):
     monkeypatch.setenv("APPDATA", str(tmp_path))
     assert config_path() == tmp_path / "ClipInbox" / "config.json"
