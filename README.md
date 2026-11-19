@@ -1,10 +1,4 @@
-<picture>
-  <source media="(prefers-color-scheme: dark) and (max-width: 600px)" srcset="./assets/cover-mobile-dark.svg">
-  <source media="(max-width: 600px)" srcset="./assets/cover-mobile-light.svg">
-  <source media="(prefers-color-scheme: dark)" srcset="./assets/cover-dark.svg">
-  <source media="(prefers-color-scheme: light)" srcset="./assets/cover-light.svg">
-  <img src="./assets/cover-light.svg" alt="ClipInbox — captura de textos para Markdown no Windows." width="1200">
-</picture>
+<img src="./assets/identity/cover-premium.webp" alt="ClipInbox — captura de textos para Markdown no Windows." width="1200">
 
 # ClipInbox
 
