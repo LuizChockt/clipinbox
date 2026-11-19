@@ -3,6 +3,7 @@
 import json
 import os
 import tempfile
+from contextlib import suppress
 from dataclasses import asdict, dataclass
 from pathlib import Path
 
@@ -84,8 +85,10 @@ def save_config(path: Path, config: Config) -> None:
             stream.flush()
             os.fsync(stream.fileno())
         os.replace(tmp, path)
+        tmp = None
     except OSError:
         raise ConfigError("Não foi possível salvar as preferências em APPDATA.") from None
     finally:
         if tmp is not None:
-            tmp.unlink(missing_ok=True)
+            with suppress(OSError):
+                tmp.unlink(missing_ok=True)
